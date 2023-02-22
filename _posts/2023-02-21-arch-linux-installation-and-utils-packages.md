@@ -8,9 +8,9 @@ pin: true
 ---
 
 # Installation
-- [x] [Installation](https://gist.github.com/robmcavalcante/327db882bd0176ee8952c5d9561f465a#file-installation-md)
+<!-- - [x] [Installation](https://gist.github.com/robmcavalcante/327db882bd0176ee8952c5d9561f465a#file-installation-md)
 - [x] [GUI - GNOME, XFCE](https://gist.github.com/robmcavalcante/be26cde99d71ee80943eb07a3679baff)
-- [x] [Packages](https://gist.github.com/robmcavalcante/ba4a4f180ed41c4f2cae090bab3e95bd)
+- [x] [Packages](https://gist.github.com/robmcavalcante/ba4a4f180ed41c4f2cae090bab3e95bd) -->
 
 ```bash
 # BRAZILIAN KEYBOARD CONFIGURATION
