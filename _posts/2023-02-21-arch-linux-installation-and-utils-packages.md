@@ -146,6 +146,11 @@ pacman -S pacman-contrib xdg-user-dirs && xdg-user-dirs-update
 - Volume down - `F2`
 - Play (or play/pause) - `F5`
 
+---
+```bash
+$ sed -i '/WaylandEnable=false/s/^#//g' /file-tal
+```
+
 ## XFCE
 ```bash
 sudo pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter xorg
