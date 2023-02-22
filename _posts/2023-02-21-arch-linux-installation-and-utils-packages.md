@@ -157,7 +157,6 @@ sudo systemctl enable lightdm
 ```bash
 sudo pacman -S dhcpcd && sudo systemctl enable dhcpcd
 ```
----
 # PACKAGES
 ## UTILS
 ```bash
@@ -169,7 +168,7 @@ sudo pacman -S noto-fonts-emoji baobab gparted neofetch wget lsof
 sudo pacman -S gimp kdenlive audacity handbrake breeze
 ```
 
-### OTHERS
+## OTHERS
 ```bash
 sudo pacman -S dconf-editor fuse-exfat ntfs-3g
 ```
