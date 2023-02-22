@@ -178,3 +178,6 @@ sudo pacman -S transmission-qt obs-studio vlc telegram-desktop discord neofetch
 ```bash
 yay -S spotify-launcher visual-studio-code-bin anki whitesur-icon-theme-git
 ```
+```bash
+pacman -S ffmpeg youtube-dl
+```
