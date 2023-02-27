@@ -4,6 +4,7 @@ author: robson
 date: 2023-02-21 12:16:00 +0800
 categories: [setup]
 tags: [git, database, docker, lunarvim, rubyonrails, virtualbox, vagrant, vscode, zsh]
+pin: true
 ---
 
 # Programming Setup
