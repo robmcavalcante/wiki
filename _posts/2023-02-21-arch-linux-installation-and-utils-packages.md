@@ -14,43 +14,92 @@ pin: true
 loadkeys br-abnt2
 ```
 
-## connect to wifi
+## Connect to wifi
 ```bash
 iwtcl
 station wlan0 connect ""
 ```
 
-```bash
-# DISK PARTITIONING
-cfdisk /dev/sdX # EFI System /boot/EFI, Linux Filesystem /
-
-# FORMATING
-mkfs.fat -F32 /dev/sdaX # /boot/EFI
-mkfs.ext4 /dev/sdaX # /
-mkfs.ext4 /dev/sdaX # /home
-```
-
-```
-# ADD KEYRING FROM ARCH REPOSITORIES
-pacman -S archlinux-keyring
-```
+## Partitioning & Formatting
+> EFI System to /boot/EFI
+{: .prompt-danger }
+> Linux Filesystem to /
+{: .prompt-danger }
 
 ```bash
-# MOUNT /
+cfdisk /dev/sdX
+```
+
+> FAT32 to /boot/EFI
+{: .prompt-danger }
+> EXT4 to / and /home
+{: .prompt-danger }
+
+```bash
+mkfs.fat -F32 /dev/sdaX
+mkfs.ext4 /dev/sdaX 
+mkfs.ext4 /dev/sdaX 
+```
+
+## Mount file systems
+```bash
 mount /dev/sdaX /mnt
-
-# CONFIGURING THE MIRRORLIST
-reflector —-verbose —-lastest 3 —-sort rate --country Brazil —-save /etc/pacman.d/mirroslist
-
-# uncomment parallel download on etc/pacman.conf
-ParallelDownloads = 5
-
-# INSTALLING THE SYSTEM BASE PACKAGES
-pacstrap /mnt base base-devel linux linux-firmware vim networkmanager sudo
-
-pacstrap /mnt base-devel
-archlinux-keyring gcc grep sudo sed)
 ```
+
+## Base Installation
+```bash
+reflector —-verbose —-lastest 3 —-sort rate --country Brazil —-save /etc/pacman.d/mirroslist
+```
+```bash
+pacstrap /mnt base base-devel linux linux-firmware vim networkmanager sudo
+```
+
+## Install Bootloader
+```bash
+pacman -S grub efibootmgr dosfstools mtools os-prober
+```
+### UEFI
+```bash
+mkdir /boot/EFI &&
+mount /dev/sdaX /boot/EFI &&
+grub-install --target=x86_64-efi --bootloader-id=ARCH_GRUB --recheck &&
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+## Configure System
+```bash
+echo arch >> /etc/hostname
+```
+
+### Setup Locale
+```bash
+sed -i '/en_US.UTF-8 UTF-8/s/^#//g' /etc/locale.gen  &&
+locale-gen &&
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+```
+
+### Setup Keyboard
+```bash
+echo KEYMAP=br-abnt2 > /etc/vconsole.conf
+```
+
+### Configure pacman
+
+> /etc/pacman.conf
+{: .prompt-info }
+
+```bash
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+```bash
+ParallelDownloads = 5
+```
+
+
+
+
+
 
 ```bash
 # MOUNT /HOME
@@ -67,14 +116,10 @@ genfstab -U /mnt/home >> /mnt/etc/fstab
 
 ```bash
 arch-chroot /mnt 
-
-echo arch >> /etc/hostname
-
-# SETTING THE LANGUAGE [uncomment "en_US.UTF-8 UTF-8"]
-sed -i '/en_US.UTF-8 UTF-8/s/^#//g' /etc/locale.gen 
-locale-gen
-echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 ```
+
+
+
 
 ```bash
 # SETTING A PASSWORD FOR THE ROOT USER
@@ -95,15 +140,11 @@ useradd -mg users -G wheel,storage,power -s /bin/bash username
 passwd username
 ```
 
-```bash
-# INSTALLING BOOT PACKAGES AND GRUB
-pacman -S grub efibootmgr dosfstools mtools os-prober
 
-# CREATING AND CONFIGURING THE SYSTEM BOOTLOADER
-mkdir /boot/EFI
-mount /dev/sdaX /boot/EFI
-grub-install --target=x86_64-efi --bootloader-id=ARCH_GRUB --recheck
-grub-mkconfig -o /boot/grub/grub.cfg
+
+```bash
+# ADD KEYRING FROM ARCH REPOSITORIES
+pacman -S archlinux-keyring
 ```
 
 ---
