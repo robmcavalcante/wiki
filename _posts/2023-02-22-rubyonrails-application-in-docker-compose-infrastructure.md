@@ -3,7 +3,7 @@ title: RubyOnRails Application in Docker Compose Infrastructure
 author: robson
 date: 2023-02-22 10:30:00 +0800
 categories: [rubyonrails]
-tags: [rubyonrails, docker, dockercompose]
+tags: [rubyonrails, docker, docker-compose]
 ---
 
 ```shell
