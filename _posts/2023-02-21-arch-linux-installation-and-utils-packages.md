@@ -162,6 +162,15 @@ sudo systemctl enable lightdm
 ```bash
 sudo pacman -S dhcpcd && sudo systemctl enable dhcpcd
 ```
+# SWAPFILE
+```bash
+dd if=/dev/zero of=/mnt/swapfile bs=1G count=1 &&
+chmod 600 /mnt/swapfile &&
+mkswap /mnt/swapfile &&
+swapon /mnt/swapfile &&
+echo "/mnt/swapfile swap swap defaults 0 0" >> /etc/fstab
+```
+
 # PACKAGES
 ## UTILS
 ```bash
