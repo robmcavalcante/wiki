@@ -9,13 +9,13 @@ pin: true
 
 # Installation
 
+## Set keyboard layout
 ```bash
-# BRAZILIAN KEYBOARD CONFIGURATION
 loadkeys br-abnt2
 ```
 
+## connect to wifi
 ```bash
-# CONNECT TO WIFI NETWORK
 iwtcl
 station wlan0 connect ""
 ```
