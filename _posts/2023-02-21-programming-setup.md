@@ -6,7 +6,9 @@ categories: [setup]
 tags: [git, database, docker, lunarvim, rubyonrails, virtualbox, vagrant, vscode, zsh]
 ---
 
-# GIT
+# Programming Setup
+
+## GIT
 ```bash
 git config --global --edit
 ```
@@ -49,12 +51,12 @@ Host ###
 	lgg = log --all --oneline --graph --decorate
 ```
 
-# DATABASE
+## DATABASE
 ```bash
 pacman -S nodejs rbenv sqlite sqlite3 libsqlite3-dev postgresql
 ```
 
-# DOCKER
+## DOCKER
 ```bash
 pacman -S docker
 systemctl enable docker
@@ -66,7 +68,7 @@ reboot
 docker run hello-world
 ```
 
-# LUNARVIM
+## LUNARVIM
 ```bash
 sudo pacman -Syyuu vim neovim && yay -S gnome-terminal-transparency
 ```
@@ -78,7 +80,7 @@ bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/
 export PATH~/.cargo/bin:~/.local/bin:$PATH
 ```
 
-# RUBYONRAILS
+## RUBYONRAILS
 ```bash
 yay -S rbenv ruby-build
 yay --clean
@@ -92,20 +94,20 @@ rbenv global 3.1.2
 gem install openssl
 ```
 
-# VIRTUALBOX
+## VIRTUALBOX
 ```bash
 pacman -Syyuu virtualbox virtualbox-host-modules-arch &&
 sudo modprobe vboxdrv &&
 sudo vboxreload
 ```
 
-# VAGRANT
+## VAGRANT
 ```bash
 pacman -S vagrant
 vagrant plugin install vagrant-vbguest
 ```
 
-# VSCODE
+## VSCODE
 ```bash
   yay -S ttf-meslo-nerd-font-powerlevel10k nerd-fonts-meslo
 ```
@@ -190,7 +192,7 @@ vscodium --install-extension wingrunr21.vscode-ruby
 ```
 {: file='settings.yml'}
 
-# ZSH
+## ZSH
 ```bash
 pacman -S zsh && chsh -s $(which zsh)
 ```
@@ -208,3 +210,7 @@ touch ~/.zshrc &&
 echo 'SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history' >> ~/.zshrc
 ```
+
+# Others
+- zshrc - https://gist.github.com/robmcavalcante/de60c4f1bb0318399717317ba382849f
+- gitconfig - https://gist.github.com/robmcavalcante/5e17df2ef0760514590e08aab4426202
