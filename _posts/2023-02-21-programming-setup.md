@@ -211,6 +211,44 @@ echo 'SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history' >> ~/.zshrc
 ```
 
-## .zshrc, .gitconfig
-- zshrc - https://gist.github.com/robmcavalcante/de60c4f1bb0318399717317ba382849f
-- gitconfig - https://gist.github.com/robmcavalcante/5e17df2ef0760514590e08aab4426202
+## .zshrc
+```bash
+# ZSH Config
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Oracle Client
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_6:$LD_LIBRARY_PATH
+export PATH=/opt/oracle/instantclient_21_6:$PATH
+
+# Folders
+alias dev='cd /home/robson/.development'
+
+# VS Codium
+alias code='vscodium'
+
+# RubyOnRails
+alias rails='bundle exec rails'
+alias importmap='./bin/importmap'
+alias rs='bundle exec rails s'
+alias rc='bundle exec rails c'
+alias raps='bundle exec rails assets:precompile && bundle exec rails s'
+
+eval "$(rbenv init -)"
+```
+{: file='.zshrc'}
+
+## .gitconfig
+```bash
+[user]
+	email = robmcavalcante@gmail.com
+	username = Robson Machado Cavalcante
+[core]
+	editor = vim
+[alias]
+	cm = commit -m
+	st = status
+	lg = log --oneline --color
+```
+{: file='.gitconfig'}
+
