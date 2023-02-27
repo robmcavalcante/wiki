@@ -58,6 +58,7 @@ pacstrap /mnt base base-devel linux linux-firmware vim networkmanager sudo
 ```bash
 pacman -S grub efibootmgr dosfstools mtools os-prober
 ```
+
 ### UEFI
 ```bash
 mkdir /boot/EFI &&
@@ -67,6 +68,9 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 ## Configure System
+```bash
+arch-chroot /mnt 
+```
 ```bash
 echo arch >> /etc/hostname
 ```
@@ -97,10 +101,12 @@ ParallelDownloads = 5
 ```
 
 ## Setup users
+
 ### Set password root
 ```bash
 passwd
 ```
+
 ### Add user
 ```bash
 useradd -mg users -G wheel,storage,power -s /bin/bash robson
@@ -108,41 +114,36 @@ passwd robson
 ```
 
 ### Enable sudo
-
-
-
-
-
-
 ```bash
-# CONFIGURING AUTOMATIC MOUNTING OF PARTITIONS
+EDITOR=vim visudo
+```
+```bash
+%wheel ALL=(ALL) ALL? %whel ALL=(ALL) NOPASSWD: ALL?
+```
+
+## Setup automount of partitions
+```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 genfstab -U /mnt/home >> /mnt/etc/fstab
 ```
 
-
+## Enable NetworkManager Service
 ```bash
-arch-chroot /mnt 
-```
-
-```bash
-# SETTING A PASSWORD FOR THE ROOT USER
-
-# SETTING ... [uncomment "%whel ALL=(ALL) NOPASSWD: ALL"]
-EDITOR=vim visudo
-```
-
-```bash
-# ENABLE THE NETWORKMANAGER SERVICE
 sudo systemctl enable NetworkManager
 ```
 
-
-
-
+## Add keyring from Arch Reṕositories
 ```bash
-# ADD KEYRING FROM ARCH REPOSITORIES
 pacman -S archlinux-keyring
+```
+
+## SWAPFILE
+```bash
+dd if=/dev/zero of=/mnt/swapfile bs=1G count=1 &&
+chmod 600 /mnt/swapfile &&
+mkswap /mnt/swapfile &&
+swapon /mnt/swapfile &&
+echo "/mnt/swapfile swap swap defaults 0 0" >> /etc/fstab
 ```
 
 ---
@@ -200,14 +201,6 @@ sudo systemctl enable lightdm
 ---
 ```bash
 sudo pacman -S dhcpcd && sudo systemctl enable dhcpcd
-```
-# SWAPFILE
-```bash
-dd if=/dev/zero of=/mnt/swapfile bs=1G count=1 &&
-chmod 600 /mnt/swapfile &&
-mkswap /mnt/swapfile &&
-swapon /mnt/swapfile &&
-echo "/mnt/swapfile swap swap defaults 0 0" >> /etc/fstab
 ```
 
 # PACKAGES
