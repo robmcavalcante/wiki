@@ -25,7 +25,7 @@ tags: [ruby, rubyonrails, programming, commands]
 
 ## SETUP
 `config/application.rb`
-```
+```ruby
 config.generators do |g|
   g.system_tests = nil
   g.view_specs false
