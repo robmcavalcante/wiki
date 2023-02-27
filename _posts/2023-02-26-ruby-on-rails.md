@@ -1,7 +1,7 @@
 ---
 title: RubyOnRails
 author: robson
-date: 2023-02-21 22:09:00 +0800
+date: 2023-02-26 22:09:00 +0800
 categories: [rubyonrails]
 tags: [ruby, rubyonrails, programming, commands]
 ---
