@@ -43,7 +43,7 @@ mkfs.ext4 /dev/sdaX
 
 ## Mount file systems
 ```bash
-mount /dev/sdaX /mnt
+mount /dev/sdaX /mnt && mount /dev/sdX /mnt/home
 ```
 
 ## Base Installation
@@ -96,15 +96,23 @@ Include = /etc/pacman.d/mirrorlist
 ParallelDownloads = 5
 ```
 
-
-
-
-
-
+## Setup users
+### Set password root
 ```bash
-# MOUNT /HOME
-mount /dev/sdX /mnt/home 
+passwd
 ```
+### Add user
+```bash
+useradd -mg users -G wheel,storage,power -s /bin/bash robson
+passwd robson
+```
+
+### Enable sudo
+
+
+
+
+
 
 ```bash
 # CONFIGURING AUTOMATIC MOUNTING OF PARTITIONS
@@ -112,18 +120,13 @@ genfstab -U /mnt >> /mnt/etc/fstab
 genfstab -U /mnt/home >> /mnt/etc/fstab
 ```
 
----
 
 ```bash
 arch-chroot /mnt 
 ```
 
-
-
-
 ```bash
 # SETTING A PASSWORD FOR THE ROOT USER
-passwd
 
 # SETTING ... [uncomment "%whel ALL=(ALL) NOPASSWD: ALL"]
 EDITOR=vim visudo
