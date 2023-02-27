@@ -211,6 +211,6 @@ echo 'SAVEHIST=1000  # Save most-recent 1000 lines
 HISTFILE=~/.zsh_history' >> ~/.zshrc
 ```
 
-# Others
+## .zshrc, .gitconfig
 - zshrc - https://gist.github.com/robmcavalcante/de60c4f1bb0318399717317ba382849f
 - gitconfig - https://gist.github.com/robmcavalcante/5e17df2ef0760514590e08aab4426202
