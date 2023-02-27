@@ -137,11 +137,6 @@ EDITOR=vim visudo
 sudo systemctl enable NetworkManager
 ```
 
-```bash
-# CREATING A USER
-useradd -mg users -G wheel,storage,power -s /bin/bash username
-passwd username
-```
 
 
 
