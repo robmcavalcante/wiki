@@ -155,10 +155,10 @@ sudo systemctl enable gdm
 ```
 ---
 ```bash
-pacman -S nautilus gnome-control-center gnome-system-monitor gnome-tweaks gnome-browser-connector
+pacman -S nautilus gnome-control-center gnome-system-monitor gnome-tweaks 
 ```
 ```bash
-pacman -S gnome-themes-extra gthumb gnome-clocks gnome-calculator gnome-text-editor gnome-terminal gnome-terminal-transparency 
+pacman -S gnome-themes-extra gthumb gnome-clocks gnome-calculator gnome-text-editor gnome-terminal 
 ```
 ```bash
 pacman -S pacman-contrib xdg-user-dirs && xdg-user-dirs-update
@@ -210,6 +210,11 @@ pacman -S --needed git base-devel &&
 git clone https://aur.archlinux.org/yay.git &&
 cd yay &&
 makepkg -si
+```
+
+# AUR Packages
+```bash
+yay -S gnome-browser-connector firefox-extension-gnome-shell-integration gnome-terminal-transparency 
 ```
 
 # PACKAGES
