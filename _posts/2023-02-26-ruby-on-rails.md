@@ -30,13 +30,10 @@ config.generators do |g|
   g.helper false
   g.stylesheets false
   g.javascripts false
+    
+  g.skip_routes true
   
   g.test_framework false
-  
-  g.skip_routes true
-
-  g.view_specs false
-  g.helper_specs false
 end
 ```
 
