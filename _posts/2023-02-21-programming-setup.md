@@ -223,10 +223,6 @@ HISTFILE=~/.zsh_history' >> ~/.zshrc
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Oracle Client
-export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_6:$LD_LIBRARY_PATH
-export PATH=/opt/oracle/instantclient_21_6:$PATH
-
 # Folders
 alias dev='cd /home/robson/.development'
 
@@ -243,6 +239,17 @@ alias raps='bundle exec rails assets:precompile && bundle exec rails s'
 eval "$(rbenv init -)"
 ```
 {: file='.zshrc'}
+
+## .zshenv
+```bash 
+# Oracle Client
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_6:$LD_LIBRARY_PATH
+export PATH=/opt/oracle/instantclient_21_6:$PATH
+
+# LVIM
+export PATH=/home/robson/.local/bin:$PATH
+```
+{: file='.zshenv'}
 
 ## .gitconfig
 ```bash
