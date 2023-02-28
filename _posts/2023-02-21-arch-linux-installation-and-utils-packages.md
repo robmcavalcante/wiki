@@ -166,7 +166,7 @@ pacman -S pacman-contrib xdg-user-dirs && xdg-user-dirs-update
 ---
 - App Indicator - [https://extensions.gnome.org/extension/615/appindicator-support/](https://extensions.gnome.org/extension/615/appindicator-support/)
 - Blur My Shell - [https://extensions.gnome.org/extension/3193/blur-my-shell/](https://extensions.gnome.org/extension/3193/blur-my-shell/)
-
+- Dash to Dock - [https://extensions.gnome.org/extension/307/dash-to-dock/](https://extensions.gnome.org/extension/307/dash-to-dock/)
 ---
 
 - BigSur Icon Theme - [https://www.gnome-look.org/p/1399044](https://www.gnome-look.org/p/1399044)
