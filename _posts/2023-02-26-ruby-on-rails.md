@@ -39,19 +39,6 @@ config.generators do |g|
   g.helper_specs false
 end
 ```
-```ruby
-config.generators do |g|
-  g.system_tests = nil
-  g.view_specs false
-  g.helper_specs false
-  g.test_framework false
-
-  g.stylesheets false
-  g.javascripts false
-  g.helper false
-  g.skip_routes true
-end
-```
 
 ## TEST A SNIP OF CODE VIA THE CONSOLE
 `app/services/myclass.rb`
