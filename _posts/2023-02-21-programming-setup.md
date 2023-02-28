@@ -194,6 +194,10 @@ vscodium --install-extension wingrunr21.vscode-ruby
 {: file='settings.yml'}
 
 ## ZSH
+```bash 
+yay -S ttf-meslo-nerd-font-powerlevel10k
+```
+
 ```bash
 pacman -S zsh && chsh -s $(which zsh)
 ```
@@ -203,7 +207,8 @@ touch ~/.zshrc &&
 echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 ```
 ```bash
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions &&
+echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
 ```
 ```bash
 touch ~/.zshrc &&
