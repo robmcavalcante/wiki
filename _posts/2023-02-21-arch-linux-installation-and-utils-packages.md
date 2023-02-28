@@ -178,7 +178,7 @@ pacman -S pacman-contrib xdg-user-dirs && xdg-user-dirs-update
 
 ---
 
-- [https://www.gnome-look.org/p/1399044](https://www.gnome-look.org/p/1399044)
+- BigSur Icon Theme - [https://www.gnome-look.org/p/1399044](https://www.gnome-look.org/p/1399044)
 
 ---
 
