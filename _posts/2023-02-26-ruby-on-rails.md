@@ -10,33 +10,33 @@ tags: [ruby, rubyonrails, programming, commands]
 
 ## Gems
 ### Development
-- solargraph-rails
-- rubocop-rails
-- rubocop-performance
-- rubocop-rspec
-- rubocop-capybara
-- rspec-style-guide
+- [solargraph-rails](https://github.com/iftheshoefritz/solargraph-rails)
+- [rubocop-rails](https://github.com/rubocop/rubocop-rails)
+- [rubocop-performance](https://github.com/rubocop/rubocop-performance)
+- [rubocop-rspec](https://github.com/rubocop/rubocop-rspec)
+- [rubocop-capybara](https://github.com/rubocop/rubocop-capybara)
+- [rspec-style-guide](https://github.com/rubocop/rspec-style-guide)
+- [rails-style-guide](https://github.com/rubocop/rails-style-guide)
 
 ---
 
-- faker
-- rspec-rails
-- factory_bot_rails
-- capybara
+- [faker](https://github.com/faker-ruby/faker)
+- [rspec-rails](https://github.com/rspec/rspec-rails)
+- [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails)
+- [capybara](https://github.com/teamcapybara/capybara)
 
 ---
 
-
-- rubycritic
-- rails_db
-- byebug
+- [rubycritic](https://github.com/whitesmith/rubycritic)
+- [rails_db](https://github.com/igorkasyanchuk/rails_db)
+- [byebug](https://github.com/deivid-rodriguez/byebug)
 
 ### Utils
-- ransack
-- pagy
+- [ransack](https://github.com/activerecord-hackery/ransack)
+- [pagy](https://github.com/ddnexus/pagy)
 
 ### Others
-- brakeman
+- [brakeman](https://github.com/presidentbeef/brakeman)
 
 ## SETUP
 `config/application.rb`
