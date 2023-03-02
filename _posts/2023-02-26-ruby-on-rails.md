@@ -10,8 +10,15 @@ tags: [ruby, rubyonrails, programming, commands]
 
 ## Gems
 ### Development
-- faker
 - rubocop-rails
+- rubocop-performance
+- rubocop-rspec
+- rubocop-capybara
+- rspec-style-guide
+
+---
+
+- faker
 - rubycritic
 - rails_db
 - byebug
