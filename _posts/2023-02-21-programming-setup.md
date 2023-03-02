@@ -11,35 +11,7 @@ pin: true
 
 ## GIT
 ```bash
-git config --global --edit
-```
-```bash
-git config --global user.name "Robson Machado Cavalcante" &&
-git config --global user.email "robmcavalcante@gmail.com"
-
-mkdir /home/$USER/.ssh && cd ~/.ssh &&
-eval "$(ssh-agent -s)"
-
-ssh-keygen -t rsa -b 4096 -C "robmcavalcante@gmail.com"
-
-ssh-add ~/.ssh/id_rsa
-
-# autocomplete names and branchs - git
-curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-```
-```
-Host github.com
-  User git
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_rsa
-   
-Host ###
-  User git
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/id_rsa
-```
-```bash
-[user]
+echo "[user]
 	name = Robson Machado Cavalcante
 	email = robmcavalcante@gmail.com
 [core]
@@ -49,7 +21,38 @@ Host ###
 	st = status
 
 	lg = log --all --oneline --decorate
-	lgg = log --all --oneline --graph --decorate
+	lgg = log --all --oneline --graph --decorate" > /home/robson/.gitconfig
+```
+{: file='.gitconfig'}
+
+
+```bash
+mkdir /home/$USER/.ssh && cd ~/.ssh &&
+eval "$(ssh-agent -s)"
+
+ssh-keygen -t rsa -b 4096 -C "robmcavalcante@gmail.com"
+
+ssh-add ~/.ssh/id_rsa
+```
+
+---
+
+```bash
+Host github.com
+  User git
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa
+   
+Host gitlab.com
+  User git
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/id_rsa
+```
+{: file='config'}
+
+```bash
+# autocomplete names and branchs - git
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 ```
 
 ## DATABASE
