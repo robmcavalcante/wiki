@@ -160,9 +160,6 @@ pacman -S nautilus gnome-control-center gnome-system-monitor gnome-tweaks
 ```bash
 pacman -S gnome-themes-extra gthumb gnome-clocks gnome-calculator gnome-text-editor gnome-terminal 
 ```
-```bash
-pacman -S pacman-contrib xdg-user-dirs && xdg-user-dirs-update
-```
 ---
 - App Indicator - [https://extensions.gnome.org/extension/615/appindicator-support/](https://extensions.gnome.org/extension/615/appindicator-support/)
 - Blur My Shell - [https://extensions.gnome.org/extension/3193/blur-my-shell/](https://extensions.gnome.org/extension/3193/blur-my-shell/)
@@ -180,6 +177,26 @@ pacman -S pacman-contrib xdg-user-dirs && xdg-user-dirs-update
 ---
 ```bash
 $ sed -i '/WaylandEnable=false/s/^#//g' /file-tal
+```
+
+```bash
+pacman -S pacman-contrib xdg-user-dirs 
+```
+
+```bash 
+XDG_DESKTOP_DIR="$HOME/"
+XDG_DOCUMENTS_DIR="$HOME/Documents"
+XDG_DOWNLOAD_DIR="$HOME/Downloads"
+XDG_MUSIC_DIR="$HOME/Music"
+XDG_PICTURES_DIR="$HOME/Pictures"
+XDG_PUBLICSHARE_DIR="$HOME/"
+XDG_TEMPLATES_DIR="$HOME/"
+XDG_VIDEOS_DIR="$HOME/Videos"
+``
+{: file='/home/&USER/.config/.user-dirs.dirs'}
+
+```bash
+&& xdg-user-dirs-update
 ```
 
 ## XFCE
