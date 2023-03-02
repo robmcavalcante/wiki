@@ -76,13 +76,40 @@ docker run hello-world
 ```bash
 sudo pacman -Syyuu vim neovim && yay -S gnome-terminal-transparency
 ```
-```
+```bash
 sudo pacman -S git base-devel python-pip npm nodejs rust --needed
 
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 export PATH~/.cargo/bin:~/.local/bin:$PATH
 ```
+
+```lua
+-- vim options
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
+-- general
+lvim.log.level = "info"
+lvim.format_on_save = {
+  enabled = true,
+  pattern = "*.lua",
+  timeout = 1000,
+}
+
+lvim.leader = "space"
+
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+
+lvim.builtin.treesitter.auto_install = true
+```
+{: file='config.lua'}
 
 ## RUBYONRAILS
 ```bash
