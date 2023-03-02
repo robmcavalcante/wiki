@@ -10,6 +10,7 @@ tags: [ruby, rubyonrails, programming, commands]
 
 ## Gems
 ### Development
+- solargraph-rails
 - rubocop-rails
 - rubocop-performance
 - rubocop-rspec
@@ -19,6 +20,13 @@ tags: [ruby, rubyonrails, programming, commands]
 ---
 
 - faker
+- rspec-rails
+- factory_bot_rails
+- capybara
+
+---
+
+
 - rubycritic
 - rails_db
 - byebug
