@@ -6,7 +6,7 @@ categories: [rubyonrails]
 tags: [rubyonrails, docker, docker-compose]
 ---
 
-```shell
+```bash
 FROM ruby:3.1.2
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
@@ -29,6 +29,7 @@ EXPOSE 3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
 ```
+{: file='Dockerfile'}
 
 ```yml
 version: '3.9'
