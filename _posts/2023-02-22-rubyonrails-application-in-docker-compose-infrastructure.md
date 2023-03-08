@@ -7,81 +7,64 @@ tags: [rubyonrails, docker, docker-compose]
 ---
 
 ```shell
-POSTGRES_USER=username
-POSTGRES_PASSWORD=password
-POSTGRES_DB=namedb
-```
-{: file='.env'}
-
-```Dockerfile
 FROM ruby:3.1.2
-
-WORKDIR /app
 
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
+WORKDIR /app
+
 COPY Gemfile /app/Gemfile
+
 COPY Gemfile.lock /app/Gemfile.lock
 
 RUN bundle install
 
-COPY . .
+COPY entrypoint.sh /usr/bin/
+
+RUN chmod +x /usr/bin/entrypoint.sh
+
+ENTRYPOINT ["entrypoint.sh"]
+
+EXPOSE 3000
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
 ```
 
 ```yml
-version: "3.9"
+version: '3.9'
 
 services:
   db:
     image: postgres
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+    container_name: hello_db_container
     volumes:
-      - db-data:/var/lib/postgresql/data
-
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_NAME: finances_ap@development_database
+      POSTGRES_USER: finances_app@user
+      POSTGRES_PASSWORD: finances_app@password
+  app:
+    build: .
+    container_name: hello_app_container
+    volumes:
+      - .:/app
+    depends_on:
+      - db
   web:
-    image: nginx:latest
-    ports:
-      - "80:80"
+    image: nginx
+    container_name: hello_werserver_container
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports: 
+      - "80:80"
     depends_on:
-      - app1
-      - app2
-
-  app1:
-    build: .
-    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-    environment:
-      RAILS_ENV: development
-      DATABASE_URL: postgres://postgres:postgres@db:5432/app_development
-    volumes:
-      - .:/app
-    depends_on:
-      - db
-
-  app2:
-    build: .
-    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3001 -b '0.0.0.0'"
-    environment:
-      RAILS_ENV: development
-      DATABASE_URL: postgres://postgres:postgres@db:5432/app_development
-    volumes:
-      - .:/app
-    depends_on:
-      - db
-
-volumes:
-  db-data:
+      - app
 ```
 {: file='docker-compose.yml'}
 
 ```conf
 upstream app_servers {
-  server app1:3000;
-  server app2:3001;
+  server app:3000;
 }
 
 server {
@@ -100,7 +83,7 @@ server {
 {: file='nginx.conf'}
 
 
-```shell
+```bash
 #!/bin/bash
 docker-compose up --remove-orphans -d
 ```
@@ -111,13 +94,26 @@ docker-compose up --remove-orphans -d
 ```yml
 default: &default
   adapter: postgresql
+  encoding: unicode
+  host: db
+  username: finances_app@user
+  password: finances_app@password
   pool: 5
 
 development:
   <<: *default
-  database: finances_db
-  host: <%= ENV['POSTGRES_DB'] %>
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  database: finances_app@development_database
 ```
 {: file='database.yml'}
+
+```bash 
+#!/bin/bash
+set -e
+
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /myapp/tmp/pids/server.pid
+
+# Then exec the container's main process (what's set as CMD in the Dockerfile).
+exec "$@"
+``` 
+{: file='entrypoint.sh'}
