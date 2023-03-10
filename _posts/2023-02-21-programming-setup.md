@@ -158,7 +158,6 @@ vscodium --install-extension wingrunr21.vscode-ruby
 ```yml
 {
     "json.schemas": [
-
     ],
 
     // emmet consider .rb files as html
@@ -172,23 +171,27 @@ vscodium --install-extension wingrunr21.vscode-ruby
     // limiting vertical rulers
     "editor.rulers": [80,120],
 
-    // Font
+    // Font, line height, theme and icons
     "editor.fontSize": 14,
-    "editor.lineHeight": 24,
     "editor.fontFamily": "Consolas",
+    "editor.lineHeight": 24,
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.iconTheme": "material-icon-theme",
 
     // save file when changing focus
     "files.autoSave": "onFocusChange",
-
-    // theme
-    "workbench.colorTheme": "Tokyo Night",
-    "workbench.iconTheme": "material-icon-theme",
 
     // do not show all tags the same
     "editor.occurrencesHighlight": false,
 
     // location of terminal tabs
-    "terminal.integrated.tabs.location": "left"
+    "terminal.integrated.tabs.location": "left",
+
+    //  dont't match brackets
+    "editor.matchBrackets": "never",
+
+    // enable zoom on mouse scroll
+    "editor.mouseWheelZoom": true,
 }
 ```
 {: file='settings.yml'}
