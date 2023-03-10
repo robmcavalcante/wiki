@@ -196,6 +196,9 @@ vscodium --install-extension vortizhe.simple-ruby-erb
 
     // enable zoom on mouse scroll
     "editor.mouseWheelZoom": true,
+    
+    // zoom setting
+    "window.zoomLevel": 1
 }
 ```
 {: file='settings.yml'}
