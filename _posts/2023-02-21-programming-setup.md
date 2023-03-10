@@ -143,82 +143,52 @@ vagrant plugin install vagrant-vbguest
   yay -S ttf-meslo-nerd-font-powerlevel10k nerd-fonts-meslo
 ```
 ```bash
-vscodium --install-extension abusaidm.html-snippets
-vscodium --install-extension aliariff.vscode-erb-beautify
-vscodium --install-extension CoenraadS.bracket-pair-colorizer-2
+
+
 vscodium --install-extension eamodio.gitlens
-vscodium --install-extension emmanuelbeziat.vscode-great-icons
 vscodium --install-extension enkia.tokyo-night
-vscodium --install-extension GitHub.github-vscode-theme
+
 vscodium --install-extension HookyQR.beautify
-vscodium --install-extension IBM.output-colorizer
-vscodium --install-extension mikestead.dotenv
-vscodium --install-extension ms-azuretools.vscode-docker
-vscodium --install-extension MS-CEINTL.vscode-language-pack-pt-BR
+
 vscodium --install-extension PKief.material-icon-theme
-vscodium --install-extension rebornix.ruby
 vscodium --install-extension vincaslt.highlight-matching-tag
 vscodium --install-extension vortizhe.simple-ruby-erb
 vscodium --install-extension wingrunr21.vscode-ruby
 ```
 ```yml
 {
-  "editor.fontSize": 13, 
-  "editor.fontFamily": "'Fira Code', Consolas",
-  "terminal.integrated.fontFamily": "MesloLGS NF",
-  "editor.fontLigatures": true,
-  "editor.rulers": [80,120],
-  "editor.renderLineHighlight": "gutter",
-  "terminal.integrated.fontSize": 16,
-  "editor.minimap.enabled": false,
-  "editor.tabSize": 2,
-  "editor.lineHeight": 26,
-  "editor.wordWrap": "off",
-  "workbench.iconTheme": "material-icon-theme",
-  "tabnine.experimentalAutoImports": true,
-  "files.autoSave": "onFocusChange",
+    "json.schemas": [
 
-  "git.suggestSmartCommit": false,
-  "json.schemas": [
+    ],
 
-  ],
+    // emmet consider .rb files as html
+    "emmet.includeLanguages": {
+        "erb": "html"
+    },
 
-  "launch": {
-    "configurations": [],
-    "compounds": []
-  },
+    // disable minimap
+    "editor.minimap.enabled": false,
 
-  "files.associations": {
-    "*.html.erb": "erb"
-  },
+    // limiting vertical rulers
+    "editor.rulers": [80,120],
 
-  "[erb]": {
-    "editor.defaultFormatter":"aliariff.vscode-erb-beautify",
-  },
+    // Font
+    "editor.fontSize": 14,
+    "editor.lineHeight": 24,
+    "editor.fontFamily": "Consolas",
 
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features",
-  },
+    // save file when changing focus
+    "files.autoSave": "onFocusChange",
 
-  "emmet.includeLanguages": {
-    "erb": "html"
-  },
-  
-  "emmet.showAbbreviationSuggestions": true,
-  "emmet.showSuggestionsAsSnippets": true,
-  "terminal.integrated.tabs.location": "left",
+    // theme
+    "workbench.colorTheme": "Tokyo Night",
+    "workbench.iconTheme": "material-icon-theme",
 
-  "editor.occurrencesHighlight": false,
-  "editor.selectionHighlight": false,
-  "editor.matchBrackets": "never",
-  "editor.mouseWheelZoom": true,
-  "workbench.colorTheme": "Tokyo Night",
-  "bracket-pair-colorizer-2.depreciation-notice": false,
-  "window.zoomLevel": 1,
+    // do not show all tags the same
+    "editor.occurrencesHighlight": false,
 
-  "solargraph.transport": "stdio",
-  "solargraph.formatting": true,
-  "solargraph.diagnostics": true
+    // location of terminal tabs
+    "terminal.integrated.tabs.location": "left"
 }
 ```
 {: file='settings.yml'}
