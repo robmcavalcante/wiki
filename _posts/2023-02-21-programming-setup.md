@@ -165,18 +165,21 @@ vscodium --install-extension wingrunr21.vscode-ruby
         "erb": "html"
     },
 
-    // disable minimap
-    "editor.minimap.enabled": false,
-
-    // limiting vertical rulers
-    "editor.rulers": [80,120],
-
     // Font, line height, theme and icons
     "editor.fontSize": 14,
     "editor.fontFamily": "Consolas",
     "editor.lineHeight": 24,
     "workbench.colorTheme": "Tokyo Night",
     "workbench.iconTheme": "material-icon-theme",
+    
+    // disable minimap
+    "editor.minimap.enabled": false,
+
+    // limiting vertical rulers
+    "editor.rulers": [80,120],
+    
+    // dont word wrap
+    "editor.wordWrap": "off",
 
     // save file when changing focus
     "files.autoSave": "onFocusChange",
