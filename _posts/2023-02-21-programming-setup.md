@@ -143,17 +143,18 @@ vagrant plugin install vagrant-vbguest
   yay -S ttf-meslo-nerd-font-powerlevel10k nerd-fonts-meslo
 ```
 ```bash
-
-
-vscodium --install-extension eamodio.gitlens
+# icons and theme
 vscodium --install-extension enkia.tokyo-night
+vscodium --install-extension PKief.material-icon-theme
 
+# indent
 vscodium --install-extension HookyQR.beautify
 
-vscodium --install-extension PKief.material-icon-theme
+# mathcing tag html
 vscodium --install-extension vincaslt.highlight-matching-tag
+
+vscodium --install-extension eamodio.gitlens
 vscodium --install-extension vortizhe.simple-ruby-erb
-vscodium --install-extension wingrunr21.vscode-ruby
 ```
 ```yml
 {
