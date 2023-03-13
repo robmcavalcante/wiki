@@ -3,7 +3,7 @@ title: RubyOnRails
 author: robson
 date: 2023-02-26 22:09:00 +0800
 categories: [rubyonrails]
-tags: [ruby, rubyonrails, programming, commands]
+tags: [ruby, rubyonrails, development, commands]
 ---
 
 # RubyOnRails
