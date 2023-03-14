@@ -153,6 +153,9 @@ vscodium --install-extension HookyQR.beautify
 # mathcing tag html
 vscodium --install-extension vincaslt.highlight-matching-tag
 
+# ruby-rubocop
+code --install-extension misogi.ruby-rubocop
+
 vscodium --install-extension eamodio.gitlens
 vscodium --install-extension vortizhe.simple-ruby-erb
 ```
